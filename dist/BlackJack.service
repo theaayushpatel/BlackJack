@@ -1,0 +1,20 @@
+[Unit]
+Description=BlackJack Startup Service
+#After=systemd-modules-load.service
+After=local-fs.target
+DefaultDependencies=no
+Before=sysinit.target
+
+[Service]
+Type=simple
+#Type=forking
+#RemainAfterExit=yes
+ExecStart=/usr/local/bin/BlackJack_service
+#StandardOutput=journal+console
+#StandardError=journal+console
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+#WantedBy=sysinit.target
